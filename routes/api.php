@@ -1,7 +1,9 @@
 <?php
 
+use App\Filament\Resources\PatientResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use OpenApi\Annotations as OA;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/test', [UserController::class, 'test']);
+Route::post('/teste/patients/create', [Controller::class, 'form']);

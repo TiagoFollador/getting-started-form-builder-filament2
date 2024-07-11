@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Nome da sua teste",
+        "description": "Descrição da sua API",
+        "contact": {
+            "name": "Nome do contato",
+            "email": "contato@example.com"
+        },
+        "license": {
+            "name": "MIT License",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/form": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Get all users",
+                "description": "Get all users",
+                "operationId": "b5ad87f8cf3dfe24c772e234ed162545",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "insira um numero",
+                        "required": false
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "insira um numero",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "cat",
+                                "dog",
+                                "rabbit"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Test",
+            "description": "Test"
+        }
+    ]
+}
