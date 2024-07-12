@@ -28,4 +28,9 @@ class Post extends Model
     {
         return $this->belongsTo(Categori::class);
     }
+
+    public function author()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }
