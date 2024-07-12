@@ -15,23 +15,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Http\Client\Request;
-
-
-/**
- * @OA\Info(
- *     title="Nome da sua teste",
- *     version="1.0.0",
- *     description="Descrição da sua API",
- *     @OA\Contact(
- *         email="contato@example.com",
- *         name="Nome do contato"
- *     ),
- *     @OA\License(
- *         name="MIT License",
- *         url="https://opensource.org/licenses/MIT"
- *     )
- * )
- */
+use App\Filament\Pages\Settings;
+use App\Filament\Resources\PatientResource\Pages\Mostrar;
+use App\Http\Controllers\ShowAll;
 
 class PatientResource extends Resource
 {   
@@ -39,38 +25,11 @@ class PatientResource extends Resource
 
     protected static ?string $model = Patient::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-eye-dropper';
 
 
-            /**
-*  @OA\GET(
-*      path="/api/form",
-*      summary="Get all users",
-*      description="Get all users",
-*      tags={"Test"},
-*      @OA\Parameter(
-*         name="name",
-*         in="query",
-*         description="insira um numero",
-*         required=false,
-*      ),
-*       @OA\Parameter(
-*         name="type",
-*         in="query",
-*         description="insira um numero",
-*         required=false,
-*           @OA\Schema(type="string", enum={"cat", "dog", "rabbit"})
-*      ),
-*      @OA\Response(
-*          response=200,
-*          description="OK",
-*          @OA\MediaType(
-*              mediaType="application/json",
-*          )
-*      ),
-*
-*  )
-*/
+ 
+    
 
     public static function form(Form $form): Form
     {
@@ -110,6 +69,10 @@ class PatientResource extends Resource
                         ->required(),
             ]);
     }
+    
+
+
+
 
     public static function table(Table $table): Table
     {
@@ -149,8 +112,11 @@ class PatientResource extends Resource
         ];
     }
 
+
+
     public static function getPages(): array
-    {
+    {   
+
         return [
             'index' => Pages\ListPatients::route('/'),
             'create' => Pages\CreatePatient::route('/create'),

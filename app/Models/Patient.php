@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Doctrine\DBAL\Schema\View;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,4 +19,5 @@ class Patient extends Model
     {
         return $this->hasMany(Treatment::class);
     }
+
 }

@@ -2,6 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Http\Controllers\ShowAll;
+use App\Models\Owner;
+use App\Models\Patient;
+use App\Models\Treatment;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -10,6 +14,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
+use Illuminate\Contracts\View\View;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -56,4 +61,7 @@ class TestePanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
+
+
+
 }

@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Nome da sua teste",
-        "description": "Descrição da sua API",
+        "title": "Nome da sua teste Laravel + Filament",
+        "description": "laravellllllllllllll",
         "contact": {
             "name": "Nome do contato",
             "email": "contato@example.com"
@@ -14,34 +14,20 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/form": {
+        "/api/index": {
             "get": {
                 "tags": [
                     "Test"
                 ],
                 "summary": "Get all users",
                 "description": "Get all users",
-                "operationId": "b5ad87f8cf3dfe24c772e234ed162545",
+                "operationId": "a266192f201b198468c8bcc37febb0b9",
                 "parameters": [
                     {
                         "name": "name",
                         "in": "query",
-                        "description": "insira um numero",
+                        "description": "name",
                         "required": false
-                    },
-                    {
-                        "name": "type",
-                        "in": "query",
-                        "description": "insira um numero",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "cat",
-                                "dog",
-                                "rabbit"
-                            ]
-                        }
                     }
                 ],
                 "responses": {

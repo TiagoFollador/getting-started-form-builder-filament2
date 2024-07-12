@@ -2,6 +2,7 @@
 
 use App\Filament\Resources\PatientResource;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ShowAll;
 use Illuminate\Http\Request;
 use OpenApi\Annotations as OA;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/teste/patients/create', [Controller::class, 'form']);
+Route::get('/mostrar', [ShowAll::class, 'index']);
