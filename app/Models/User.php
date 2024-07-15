@@ -46,14 +46,19 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
-    public function posts()
-    {
-        return $this->belongsToMany(Post::class, 'post_user')->withTimestamps;
-    }
-
-
+    
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email,  '@admin.com' && $this->hasVerifiedEmail());
+    }
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'users_has_posts')->withPivot(['order'])->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comments::class, 'comentable');
     }
 }

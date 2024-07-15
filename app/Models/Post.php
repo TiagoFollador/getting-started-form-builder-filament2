@@ -31,6 +31,11 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class, 'users_has_posts')->withPivot(['order'])->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comments::class, 'commentable');
     }
 }
