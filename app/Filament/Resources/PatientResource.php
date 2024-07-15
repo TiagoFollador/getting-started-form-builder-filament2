@@ -18,6 +18,7 @@ use Illuminate\Http\Client\Request;
 use App\Filament\Pages\Settings;
 use App\Filament\Resources\PatientResource\Pages\Mostrar;
 use App\Http\Controllers\ShowAll;
+use Filament\Support\Colors\Color;
 
 class PatientResource extends Resource
 {   
@@ -80,7 +81,17 @@ class PatientResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('type'),
+                Tables\Columns\TextColumn::make('type')
+                    ->badge()
+                    ->sortable()
+                    ->color(function(string $state) 
+                    {
+                        return match($state){
+                            'cat' => Color::hex('#cfdb3f'),
+                            'dog' =>  Color::hex('#6e491e'),
+                            'rabbit' => Color::hex('#3d3b38'),
+                        };
+                    }),
                 Tables\Columns\TextColumn::make('date_of_birth')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('owner.name')
